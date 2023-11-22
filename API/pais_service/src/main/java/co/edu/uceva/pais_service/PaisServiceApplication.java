@@ -3,9 +3,13 @@ package co.edu.uceva.pais_service;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+
 @SpringBootApplication
 public class PaisServiceApplication {
 
+    static {
+        System.loadLibrary("proyecto_grafos");
+    }
     public static void main(String[] args) {
         SpringApplication.run(PaisServiceApplication.class, args);
     }
