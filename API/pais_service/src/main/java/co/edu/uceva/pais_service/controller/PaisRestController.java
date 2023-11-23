@@ -34,11 +34,18 @@ public class PaisRestController {
         return "Hola " + nombre;
     }
 
+
+    static {
+
+
+        System.load("/home/ubuntu/libproyecto/libproyecto/libproyecto_grafos.so");
+    }
+
     @PostMapping("/asignarcursos") //
     public String asignarCursos(@RequestBody String jsonCursos)
     {
-        grafos grafos = new grafos();
-        return grafos.funcionAsignacion(jsonCursos, jsonSalas);
+        grafos gr = new grafos();
+        return gr.funcionAsignacion(jsonCursos, jsonSalas);
     }
 
     String jsonSalas = "[{\"nombre\": \"Sala A\",\"capacidad\": 30},"

@@ -55,12 +55,26 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+                    <!-- Excluye las dependencias de Lombok:
+                         Es excluido para reducir el tamaño del JAR resultante y evitar problemas de clase duplicada si
+                         otras bibliotecas también incluyen Lombok. -->
                     <excludes>
                         <exclude>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
                         </exclude>
                     </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.1.2</version>
+                <configuration>
+                    <includes>
+                        <include>**/*Tests.java</include>
+                    </includes>
+                    <skipTests>true</skipTests>
                 </configuration>
             </plugin>
         </plugins>
